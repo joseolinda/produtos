@@ -1,8 +1,16 @@
-# React + Vite
+# Aula useEffect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Linke Demo: 
+[https://joseolinda.github.io/produtos](https://joseolinda.github.io/produtos)
 
-Currently, two official plugins are available:
+Este projeto foi criado com o intuito de aprender sobre o hook useEffect do React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## O que é useEffect?
+
+O useEffect é um hook que serve para executar efeitos colaterais em componentes funcionais. Ele é executado após a renderização do componente e pode ser utilizado para realizar operações como chamadas a APIs, manipulação do DOM, entre outras.
+
+## useEffect não obstrutivo
+
+Usar o useEffect sem asyn/await permite que o código seja executado de forma não obstrutiva, ou seja, o código não irá bloquear a renderização do componente.
+
+Os dados podem ser carregados de forma assíncrona e, quando estiverem prontos, o estado do componente pode ser atualizado.
