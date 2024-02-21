@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     buscarProdutos(ultimo)
-    if (ultimo < 10) {
+    if (ultimo < 30) {
       setUltimo(ultimo + 1)
     }
   }, [ultimo])
