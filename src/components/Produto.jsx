@@ -2,7 +2,7 @@ function Produto({ p_info }) {
     return (
         <div className="produto">
             <div className="left">
-                <img src={p_info.thumbnail} alt="" id="detaque" />
+                <img src={p_info.thumbnail} alt="" id="destaque" />
                 <ul id="imagens">
                     { p_info.images.map(
                         (im, idx) => <li key={idx}><img src={im} /></li>
