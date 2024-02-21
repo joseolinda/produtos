@@ -19,18 +19,45 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    position: relative;
+    max-width: 1260px;
+    margin: 0 auto;
 }
+
+/* Produto em tela cheia */
+.produto:target {
+    font-size: 1.3em;
+    background-color: #fff;
+    position: fixed;
+    width: 90%;
+    max-width: 1260px;
+    scroll-margin-top: 100px;
+    z-index: 100;
+    height: 90%;
+    align-items: center;
+}
+
+.produto:target::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: -1;
+    transition: .1s;
+}
+/* Fim do Produto em tela cheia */
 
 .produto {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
-    padding: 40px;
     border: 1px solid #292828;
     border-radius: 3px;
     background-color: hsl(233, 8%, 19%);
-    gap: 20px;
     position: relative;
     max-width: 600px;
     box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,  
@@ -41,6 +68,13 @@ body {
               0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
               0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
               0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+
+    transition: .3s;
+}
+
+.produto .left,
+.produto .right {
+    padding: 25px;
 }
 
 .produto .left {
@@ -49,6 +83,8 @@ body {
     flex-direction: column;
     height: 100%;
     gap: 20px;
+    background-color: hsla(0, 0%,  
+    100%, 0.075);
 }
 
 .produto .left img#destaque {
@@ -135,6 +171,39 @@ body {
     box-shadow: 0 0 10px 2px rgba(52, 245, 126, 0.6);
 }
 
+.produto .fullscreen {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-weight: bolder;
+    font-size: 1.5em;
+    color: hsl(240, 14.60%, 81.20%);
+    text-decoration: none;
+    transition: .3s;
+    transform: rotate(45deg);
+}
+
+.produto .fullscreen::before {
+    color: hsl(240, 14.60%, 81.20%);
+    position: absolute;
+    content: '\27F7';
+    transform: rotate(90deg);
+}
+
+.produto:target .fullscreen,
+.produto:target .fullscreen:hover {
+    color: transparent;
+}
+
+.produto:target .fullscreen::before {
+    content: '\27F6';
+}
+
+.produto .fullscreen:hover,
+.produto .fullscreen:hover::before {
+    color: #34f57e
+}
+
 /* Texto responsivo */
 @media (max-width: 768px) {
     body {
@@ -143,6 +212,7 @@ body {
     .produto {
         flex-direction: column-reverse;
         align-items: center;
+        width: 100%;
     }
 
     .produto .left {
