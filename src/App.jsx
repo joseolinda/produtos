@@ -3,32 +3,33 @@ import Produto from './components/Produto'
 
 
 function App() {
-  const [produtos, setProdutos] = useState(null)
+  const [produtos, setProdutos] = useState([])
+  const [ultimo, setUltimo] = useState(1)
 
   useEffect(() => {
-    console.log("Buscando dados")
-    fetch('https://dummyjson.com/products/1')
+    buscarProdutos(ultimo)
+    if (ultimo < 10) {
+      setUltimo(ultimo + 1)
+    }
+  }, [ultimo])
+
+  function buscarProdutos(p = 1) {
+    fetch(`https://dummyjson.com/products/${p}`)
       .then(resp => {
-        console.log("Os dados chegaram")
         if(resp.ok) {
           return resp.json()
         }
         throw new Error("Algo deu errado")
       })
-      .then(dados => setProdutos(dados))
+      .then(dados => setProdutos(prod => prod.concat(dados)))
       .catch(e => console.error(e))
-
-  }, [])
+  }
 
 
   return (
-    <>
-      { produtos ? (
-        <Produto p_info={produtos} />
-      ): (
-        "Carregando"
-      )}
-    </>
+    <div className='page'>
+      { produtos?.map((p, idx) => <Produto key={idx} p_info={p} />) }
+    </div>
   )
 }
 
