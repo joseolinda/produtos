@@ -1,11 +1,21 @@
+import { useState } from 'react'
+
 function Produto({ p_info }) {
+    const [destaque, setDestaque] = useState(p_info.thumbnail)
+
+    function trocarImagemDestaque(e) {
+        let antigo = destaque
+        setDestaque(e.target.src)
+        e.target.src = antigo
+    }
+
     return (
         <div className="produto">
             <div className="left">
-                <img src={p_info.thumbnail} alt="" id="destaque" />
+                <img src={ destaque } alt="" id="destaque" />
                 <ul id="imagens">
                     { p_info.images.map(
-                        (im, idx) => <li key={idx}><img src={im} /></li>
+                        (im, idx) => <li key={idx}><img src={im} onClick={trocarImagemDestaque} /></li>
                     )}
                 </ul>
             </div>
