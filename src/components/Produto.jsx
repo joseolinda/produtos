@@ -20,6 +20,7 @@ function Produto({ p_info }) {
                 </ul>
             </div>
             <div className="right">
+                <a href={"#" + p_info.category} className="categoria">#{p_info.category}</a>
                 <h1>{p_info.title}</h1>
                 <h2>R$ {p_info.price.toFixed(2).toString().padStart(2, '0')}</h2>
                 <p>{p_info.description}</p>
