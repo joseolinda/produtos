@@ -24,7 +24,7 @@ body {
 .produto {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     padding: 40px;
     border: 1px solid #666;
@@ -39,6 +39,8 @@ body {
     width: 60%;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    gap: 20px;
 }
 
 .produto .left img#destaque {
@@ -53,7 +55,7 @@ body {
     display: flex;
     gap: 10px;
     height: 100px;
-    margin-top: 20px;
+    margin-top: auto;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -106,6 +108,7 @@ body {
     text-decoration: none;
     text-align: center;
     color: #2a5e3e;
+    margin-top: auto;
 }
 
 /* Efeito de hover no botão */
