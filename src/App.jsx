@@ -3,7 +3,7 @@ import Produto from './components/Produto'
 
 
 function App() {
-  const [produtos, setProdutos] = useState([])
+  const [produtos, setProdutos] = useState(null)
 
   useEffect(() => {
     console.log("Buscando dados")
@@ -23,7 +23,11 @@ function App() {
 
   return (
     <>
-      oi
+      { produtos ? (
+        <Produto p_info={produtos} />
+      ): (
+        "Carregando"
+      )}
     </>
   )
 }

@@ -13,7 +13,7 @@ function Produto({ p_info }) {
                 <h1>{p_info.title}</h1>
                 <h2>R$ {p_info.price}</h2>
                 <p>{p_info.description}</p>
-                <a href="#">Compre agora!</a>
+                <a className="comprar" href="#">Compre agora!</a>
             </div>
         </div>
     )
