@@ -18,3 +18,5 @@ function Produto({ p_info }) {
         </div>
     )
 }
+
+export default Produto
